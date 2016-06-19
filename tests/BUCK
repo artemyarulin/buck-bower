@@ -1,0 +1,11 @@
+bower_dependencies(['purescript-prelude#1.0.0'],'one-dep')
+bower_dependencies(['purescript-eff#1.0.0'],'two-deps')
+bower_dependencies(['purescript-coproducts'],'original-name')
+bower_dependencies(['purescript-functor-coproducts#1.0.0'],'renamed')
+
+bower_dependencies(['purescript-strongcheck#1.1.1'],'lib-with-many-deps-1')
+bower_dependencies(['purescript-pux#4.1.0'],'lib-with-many-deps-2')
+
+bower_dependencies(['purescript-strongcheck#1.1.1',
+                    'purescript-test-unit#7.0.0',
+                    'purescript-pux#4.1.0'],'multiple-libs')

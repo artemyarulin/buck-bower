@@ -1,0 +1,13 @@
+def bower_dependencies(names,task_name=None):
+    genrule(name=task_name if task_name else 'generate_bower_deps',
+            srcs = [],
+            bash = 'mkdir $OUT && cd $OUT && $(exe //RULES/buck-bower:run_bower_buck) ' + ' '.join("'{0}'".format(d) for d in names) + ' > BUCK',
+            out = 'build')
+
+def js_dep(name,deps):
+    genrule(name.replace(' ','_'),
+            srcs = glob([name.replace(' ','#') + '/**/']),
+            bash = 'mkdir $OUT && ' +
+            'rsync -ra $SRCDIR/ $OUT/ &&' +
+            ('&&'.join(map(lambda d: 'rsync -r --prune-empty-dirs $(location :' + d.replace(' ','_') + ')/ $OUT',deps)) if len(deps) else 'true'),
+            out = 'build')

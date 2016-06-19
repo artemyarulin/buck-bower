@@ -1,0 +1,7 @@
+export_file(name = 'bower_buck.py')
+genrule(name = 'run_bower_buck',
+        srcs = [],
+        bash = 'cp $(location :bower_buck.py) $OUT',
+        out = 'build',
+        visibility = ['PUBLIC'],
+        executable = True)

@@ -1,0 +1,4 @@
+js_dep('purescript-eff 1.0.0',
+       ['purescript-prelude 1.0.1'])
+js_dep('purescript-prelude 1.0.1',
+       [])
